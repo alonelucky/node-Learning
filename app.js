@@ -31,5 +31,5 @@ https.get(url,function(res){
 });
 
 // 定义该配置监听的端口
-app.listen(80);
-console.log('服务启动 80');
+app.listen(3000);
+console.log('服务启动 3000');
