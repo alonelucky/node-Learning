@@ -1,1 +1,6 @@
-node_modules/*
+node-liuyan/node_modules/*
+node-login/node_modules/*
+node-wechat/node_modules/*
+node-wechat/.idea/*
+node-login/.idea/*
+node-liuyan/.idea/*
