@@ -1,0 +1,8 @@
+1. 文件上传预览
+前端知识:
+imgURl = window.URL.createObjectURL(imgData);
+
+2. 文件上传预览裁剪
+gm(oldImagePath)
+    .crop() // 四个参数分别为裁切的宽高和距离左侧和顶部的距离 (width,height,left,top)
+    .write(newImagePath,function(err){});
