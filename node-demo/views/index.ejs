@@ -1,0 +1,43 @@
+<% include header.ejs %>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">许愿墙</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/"> 首页 <span class="sr-only">(current)</span></a></li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <% if( loged !='1' ){ %>
+                        <li><a href="/login">登录</a></li>
+                        <li><a href="/sign">注册</a></li>
+                    <% }else{ %>
+                        <li><a href="javascript:;"><%=username %></a></li>
+                        <li class="dropdown">
+                            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">个人信息 <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/user">个人信息设置</a></li>
+                                <li><a href="">联系管理员</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a id="logout">登出</a></li>
+                            </ul>
+                        </li>
+                    <% } %>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+</body>
+<% include footer.ejs %>

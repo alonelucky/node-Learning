@@ -1,0 +1,56 @@
+<% include header.ejs %>
+<style>
+    .input-group{
+        margin: 20px 0;
+        width: 100%;
+    }
+    .input-group-addon{
+        width: 100px;
+    }
+</style>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">许愿墙</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/"> 首页 <span class="sr-only">(current)</span></a></li>
+                </ul>
+
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <form>
+                    <h2>请登录 : </h2>
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon1">用户名</span>
+                        <input type="text" class="form-control" placeholder="请输入用户名">
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon1">密码</span>
+                        <input type="password" class="form-control" placeholder="请输入密码">
+                    </div>
+                    <a class="btn btn-success">确认登录</a>
+                    <a href="/sign" class="btn btn-default">没有账户?注册</a>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</body>
+<% include footer.ejs %>
