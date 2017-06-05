@@ -1,4 +1,22 @@
 <% include header.ejs %>
+
+<style>
+    .input-group{
+        margin: 20px 0;
+        width: 100%;
+    }
+    .input-group-addon{
+        width: 100px;
+    }
+    .media{
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        box-shadow: 0 0 5px #555;
+        min-height: 120px;
+        max-height: 120px;
+    }
+</style>
 <body>
     <nav class="navbar navbar-inverse">
         <div class="container">
@@ -21,23 +39,87 @@
 
                 <ul class="nav navbar-nav navbar-right">
                     <% if( loged !='1' ){ %>
-                        <li><a href="/login">登录</a></li>
-                        <li><a href="/sign">注册</a></li>
+                    <li><a href="/login">登录</a></li>
+                    <li><a href="/sign">注册</a></li>
                     <% }else{ %>
-                        <li><a href="javascript:;"><%=username %></a></li>
-                        <li class="dropdown">
-                            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">个人信息 <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="/user">个人信息设置</a></li>
-                                <li><a href="">联系管理员</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a id="logout">登出</a></li>
-                            </ul>
-                        </li>
+                    <li><a href="javascript:;"><%=username %></a></li>
+                    <li class="dropdown">
+                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">个人信息 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/user/setting?username=<%=username %>">个人信息设置</a></li>
+                            <li><a href="/">联系管理员</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="javascript:;" id="logout">登出</a></li>
+                        </ul>
+                    </li>
                     <% } %>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
+
+    <div class="container">
+        <div class="row">
+            <% if( loged !='1'){ %>
+            <div class="col-md-8">
+                <div class="jumbotron">
+                    <h1>Hello, world!</h1>
+                    <p>...</p>
+                    <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <form>
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon1">用户名</span>
+                        <input type="text" class="form-control" name="username" placeholder="请输入用户名">
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon1">密码</span>
+                        <input type="password" class="form-control" name="password" placeholder="请输入密码">
+                    </div>
+                    <a href="/sign" class="btn btn-default">没有账户?注册</a>
+                    <a class="btn btn-success" id="login">确认登录</a>
+                </form>
+            </div>
+            <% }else{ %>
+                <div class="col-md-4">
+                    <form id="formPost">
+                        <div class="form-group">
+                            <label for="postContent"><h3>发布心情</h3></label>
+                            <textarea name="postContent" id="postContent" class="form-control" cols="30" rows="5"></textarea>
+                        </div>
+                        <a href="javascript:;" class="btn btn-success pull-right" id="submitPost">发表心情</a>
+                    </form>
+                </div>
+                <div class="col-md-8">
+                    <div class="jumbotron">
+                        <h1>Hello, world!</h1>
+                        <p>...</p>
+                        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+        <% if(loged=='1'){ %>
+        <div class="row">
+            <% for(var i=0; i<posts.length;i++){ %>
+                <div class="col-md-4">
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="#">
+                                <img class="media-object" src="/img/dir_img.jpg" width="50px" alt="...">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading"><%= posts[i].username %></h4>
+                            <p><%= posts[i].postContent %></p>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+        <%}%>
+    </div>
 </body>
 <% include footer.ejs %>

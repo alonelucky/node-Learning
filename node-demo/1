@@ -1,5 +1,6 @@
-ncomingMessage {
-  _readableState:
+数据库连接成功
+IncomingMessage {
+  _readableState: 
    ReadableState {
      objectMode: false,
      highWaterMark: 16384,
@@ -8,12 +9,12 @@ ncomingMessage {
      pipes: null,
      pipesCount: 0,
      flowing: null,
-     ended: false,
+     ended: true,
      endEmitted: false,
      reading: false,
      sync: true,
      needReadable: false,
-     emittedReadable: false,
+     emittedReadable: true,
      readableListening: false,
      resumeScheduled: false,
      defaultEncoding: 'utf8',
@@ -27,13 +28,13 @@ ncomingMessage {
   _events: {},
   _eventsCount: 0,
   _maxListeners: undefined,
-  socket:
+  socket: 
    Socket {
      connecting: false,
      _hadError: false,
-     _handle:
+     _handle: 
       TCP {
-        bytesRead: 1122,
+        bytesRead: 1186,
         _externalStream: {},
         fd: -1,
         reading: true,
@@ -44,7 +45,7 @@ ncomingMessage {
         _consumed: true },
      _parent: null,
      _host: null,
-     _readableState:
+     _readableState: 
       ReadableState {
         objectMode: false,
         highWaterMark: 16384,
@@ -69,7 +70,7 @@ ncomingMessage {
         encoding: null },
      readable: true,
      domain: null,
-     _events:
+     _events: 
       { end: [Object],
         finish: [Function: onSocketFinish],
         _socketEnd: [Function: onSocketEnd],
@@ -82,7 +83,7 @@ ncomingMessage {
         pause: [Function: onSocketPause] },
      _eventsCount: 10,
      _maxListeners: undefined,
-     _writableState:
+     _writableState: 
       WritableState {
         objectMode: false,
         highWaterMark: 16384,
@@ -114,7 +115,7 @@ ncomingMessage {
      _sockname: null,
      _pendingData: null,
      _pendingEncoding: '',
-     server:
+     server: 
       Server {
         domain: null,
         _events: [Object],
@@ -131,7 +132,7 @@ ncomingMessage {
         timeout: 120000,
         _pendingResponseData: 0,
         _connectionKey: '6::::3000' },
-     _server:
+     _server: 
       Server {
         domain: null,
         _events: [Object],
@@ -149,7 +150,7 @@ ncomingMessage {
         _pendingResponseData: 0,
         _connectionKey: '6::::3000' },
      _idleTimeout: 120000,
-     _idleNext:
+     _idleNext: 
       TimersList {
         _idleNext: [Circular],
         _idlePrev: [Circular],
@@ -157,7 +158,7 @@ ncomingMessage {
         _unrefed: true,
         msecs: 120000,
         nextTick: false },
-     _idlePrev:
+     _idlePrev: 
       TimersList {
         _idleNext: [Circular],
         _idlePrev: [Circular],
@@ -165,8 +166,8 @@ ncomingMessage {
         _unrefed: true,
         msecs: 120000,
         nextTick: false },
-     _idleStart: 1753,
-     parser:
+     _idleStart: 2590,
+     parser: 
       HTTPParser {
         '0': [Function: parserOnHeaders],
         '1': [Function: parserOnHeadersComplete],
@@ -185,7 +186,7 @@ ncomingMessage {
      _paused: false,
      read: [Function],
      _consuming: true,
-     _httpMessage:
+     _httpMessage: 
       ServerResponse {
         domain: null,
         _events: [Object],
@@ -215,14 +216,16 @@ ncomingMessage {
         _headerNames: [Object],
         _onPendingData: [Function: updateOutgoingData],
         req: [Circular],
-        locals: {} } },
-  connection:
+        locals: {},
+        writeHead: [Function: writeHead],
+        end: [Function: end] } },
+  connection: 
    Socket {
      connecting: false,
      _hadError: false,
-     _handle:
+     _handle: 
       TCP {
-        bytesRead: 1122,
+        bytesRead: 1186,
         _externalStream: {},
         fd: -1,
         reading: true,
@@ -233,7 +236,7 @@ ncomingMessage {
         _consumed: true },
      _parent: null,
      _host: null,
-     _readableState:
+     _readableState: 
       ReadableState {
         objectMode: false,
         highWaterMark: 16384,
@@ -258,7 +261,7 @@ ncomingMessage {
         encoding: null },
      readable: true,
      domain: null,
-     _events:
+     _events: 
       { end: [Object],
         finish: [Function: onSocketFinish],
         _socketEnd: [Function: onSocketEnd],
@@ -271,7 +274,7 @@ ncomingMessage {
         pause: [Function: onSocketPause] },
      _eventsCount: 10,
      _maxListeners: undefined,
-     _writableState:
+     _writableState: 
       WritableState {
         objectMode: false,
         highWaterMark: 16384,
@@ -303,7 +306,7 @@ ncomingMessage {
      _sockname: null,
      _pendingData: null,
      _pendingEncoding: '',
-     server:
+     server: 
       Server {
         domain: null,
         _events: [Object],
@@ -320,7 +323,7 @@ ncomingMessage {
         timeout: 120000,
         _pendingResponseData: 0,
         _connectionKey: '6::::3000' },
-     _server:
+     _server: 
       Server {
         domain: null,
         _events: [Object],
@@ -338,7 +341,7 @@ ncomingMessage {
         _pendingResponseData: 0,
         _connectionKey: '6::::3000' },
      _idleTimeout: 120000,
-     _idleNext:
+     _idleNext: 
       TimersList {
         _idleNext: [Circular],
         _idlePrev: [Circular],
@@ -346,7 +349,7 @@ ncomingMessage {
         _unrefed: true,
         msecs: 120000,
         nextTick: false },
-     _idlePrev:
+     _idlePrev: 
       TimersList {
         _idleNext: [Circular],
         _idlePrev: [Circular],
@@ -354,8 +357,8 @@ ncomingMessage {
         _unrefed: true,
         msecs: 120000,
         nextTick: false },
-     _idleStart: 1753,
-     parser:
+     _idleStart: 2590,
+     parser: 
       HTTPParser {
         '0': [Function: parserOnHeaders],
         '1': [Function: parserOnHeadersComplete],
@@ -374,7 +377,7 @@ ncomingMessage {
      _paused: false,
      read: [Function],
      _consuming: true,
-     _httpMessage:
+     _httpMessage: 
       ServerResponse {
         domain: null,
         _events: [Object],
@@ -404,63 +407,59 @@ ncomingMessage {
         _headerNames: [Object],
         _onPendingData: [Function: updateOutgoingData],
         req: [Circular],
-        locals: {} } },
+        locals: {},
+        writeHead: [Function: writeHead],
+        end: [Function: end] } },
   httpVersionMajor: 1,
   httpVersionMinor: 1,
   httpVersion: '1.1',
-  complete: false,
-  headers:
+  complete: true,
+  headers: 
    { host: 'localhost:3000',
      connection: 'keep-alive',
-     'content-length': '30',
-     accept: '*/*',
-     origin: 'http://localhost:3000',
-     'x-requested-with': 'XMLHttpRequest',
+     'cache-control': 'max-age=0',
+     accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+     'upgrade-insecure-requests': '1',
      'user-agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36',
-     'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
-     referer: 'http://localhost:3000/sign',
-     'accept-encoding': 'gzip, deflate',
+     'accept-encoding': 'gzip, deflate, sdch',
      'accept-language': 'zh-CN,zh;q=0.8',
-     cookie: 'LiveWSDHT53678132=1493196501938920590279; NDHT53678132fistvisitetime=1493196501960; LiveWSDDT41670871=1494040360886797132820; NDDT41670871fistvisitetime=1494040360896; NDHT53678132visitecounts=20; Hm_lvt_6bb137e0427af7c3135df638a3b143d2=1495247539,1495614372,1495673546,1495764229; NDHT53678132lastvisitetime=1495792245585; NDHT53678132visitepages=3691; Hm_lvt_36e731ff229c70ce63cf80b5da20db7e=1494327214,1494471205,1494557631,1495774738; NDDT41670871visitecounts=4; Hm_lvt_385641afa146960436686b99c16c719e=1495076380,1495090305,1495095106,1496280438; NDDT41670871lastvisitetime=1496282371415; NDDT41670871visitepages=160' },
-  rawHeaders:
+     cookie: 'LiveWSDHT53678132=1493196501938920590279; NDHT53678132fistvisitetime=1493196501960; LiveWSDDT41670871=1494040360886797132820; NDDT41670871fistvisitetime=1494040360896; NDHT53678132visitecounts=20; Hm_lvt_6bb137e0427af7c3135df638a3b143d2=1495247539,1495614372,1495673546,1495764229; NDHT53678132lastvisitetime=1495792245585; NDHT53678132visitepages=3691; Hm_lvt_36e731ff229c70ce63cf80b5da20db7e=1494327214,1494471205,1494557631,1495774738; NDDT41670871visitecounts=4; Hm_lvt_385641afa146960436686b99c16c719e=1495076380,1495090305,1495095106,1496280438; NDDT41670871lastvisitetime=1496282371415; NDDT41670871visitepages=160; connect.sid=s%3AYZYF1rnFiUpEzP2HrtfCbqFy1lWVAlkV.8xaO1dCGSBm%2BR1Xax15p1%2BpBTOHEFNvLbNLyeY2%2BcOc',
+     'if-none-match': 'W/"e6d-Bi8v9ndtOE1nodgoOM/6pv83S4M"' },
+  rawHeaders: 
    [ 'Host',
      'localhost:3000',
      'Connection',
      'keep-alive',
-     'Content-Length',
-     '30',
+     'Cache-Control',
+     'max-age=0',
      'Accept',
-     '*/*',
-     'Origin',
-     'http://localhost:3000',
-     'X-Requested-With',
-     'XMLHttpRequest',
+     'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+     'Upgrade-Insecure-Requests',
+     '1',
      'User-Agent',
      'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36',
-     'Content-Type',
-     'application/x-www-form-urlencoded; charset=UTF-8',
-     'Referer',
-     'http://localhost:3000/sign',
      'Accept-Encoding',
-     'gzip, deflate',
+     'gzip, deflate, sdch',
      'Accept-Language',
      'zh-CN,zh;q=0.8',
      'Cookie',
-     'LiveWSDHT53678132=1493196501938920590279; NDHT53678132fistvisitetime=1493196501960; LiveWSDDT41670871=1494040360886797132820; NDDT41670871fistvisitetime=1494040360896; NDHT53678132visitecounts=20; Hm_lvt_6bb137e0427af7c3135df638a3b143d2=1495247539,1495614372,1495673546,1495764229; NDHT53678132lastvisitetime=1495792245585; NDHT53678132visitepages=3691; Hm_lvt_36e731ff229c70ce63cf80b5da20db7e=1494327214,1494471205,1494557631,1495774738; NDDT41670871visitecounts=4; Hm_lvt_385641afa146960436686b99c16c719e=1495076380,1495090305,1495095106,1496280438; NDDT41670871lastvisitetime=1496282371415; NDDT41670871visitepages=160' ],
+     'LiveWSDHT53678132=1493196501938920590279; NDHT53678132fistvisitetime=1493196501960; LiveWSDDT41670871=1494040360886797132820; NDDT41670871fistvisitetime=1494040360896; NDHT53678132visitecounts=20; Hm_lvt_6bb137e0427af7c3135df638a3b143d2=1495247539,1495614372,1495673546,1495764229; NDHT53678132lastvisitetime=1495792245585; NDHT53678132visitepages=3691; Hm_lvt_36e731ff229c70ce63cf80b5da20db7e=1494327214,1494471205,1494557631,1495774738; NDDT41670871visitecounts=4; Hm_lvt_385641afa146960436686b99c16c719e=1495076380,1495090305,1495095106,1496280438; NDDT41670871lastvisitetime=1496282371415; NDDT41670871visitepages=160; connect.sid=s%3AYZYF1rnFiUpEzP2HrtfCbqFy1lWVAlkV.8xaO1dCGSBm%2BR1Xax15p1%2BpBTOHEFNvLbNLyeY2%2BcOc',
+     'If-None-Match',
+     'W/"e6d-Bi8v9ndtOE1nodgoOM/6pv83S4M"' ],
   trailers: {},
   rawTrailers: [],
   upgrade: false,
-  url: '/signcheck',
-  method: 'POST',
+  url: '/login',
+  method: 'GET',
   statusCode: null,
   statusMessage: null,
-  client:
+  client: 
    Socket {
      connecting: false,
      _hadError: false,
-     _handle:
+     _handle: 
       TCP {
-        bytesRead: 1122,
+        bytesRead: 1186,
         _externalStream: {},
         fd: -1,
         reading: true,
@@ -471,7 +470,7 @@ ncomingMessage {
         _consumed: true },
      _parent: null,
      _host: null,
-     _readableState:
+     _readableState: 
       ReadableState {
         objectMode: false,
         highWaterMark: 16384,
@@ -496,7 +495,7 @@ ncomingMessage {
         encoding: null },
      readable: true,
      domain: null,
-     _events:
+     _events: 
       { end: [Object],
         finish: [Function: onSocketFinish],
         _socketEnd: [Function: onSocketEnd],
@@ -509,7 +508,7 @@ ncomingMessage {
         pause: [Function: onSocketPause] },
      _eventsCount: 10,
      _maxListeners: undefined,
-     _writableState:
+     _writableState: 
       WritableState {
         objectMode: false,
         highWaterMark: 16384,
@@ -541,7 +540,7 @@ ncomingMessage {
      _sockname: null,
      _pendingData: null,
      _pendingEncoding: '',
-     server:
+     server: 
       Server {
         domain: null,
         _events: [Object],
@@ -558,7 +557,7 @@ ncomingMessage {
         timeout: 120000,
         _pendingResponseData: 0,
         _connectionKey: '6::::3000' },
-     _server:
+     _server: 
       Server {
         domain: null,
         _events: [Object],
@@ -576,7 +575,7 @@ ncomingMessage {
         _pendingResponseData: 0,
         _connectionKey: '6::::3000' },
      _idleTimeout: 120000,
-     _idleNext:
+     _idleNext: 
       TimersList {
         _idleNext: [Circular],
         _idlePrev: [Circular],
@@ -584,7 +583,7 @@ ncomingMessage {
         _unrefed: true,
         msecs: 120000,
         nextTick: false },
-     _idlePrev:
+     _idlePrev: 
       TimersList {
         _idleNext: [Circular],
         _idlePrev: [Circular],
@@ -592,8 +591,8 @@ ncomingMessage {
         _unrefed: true,
         msecs: 120000,
         nextTick: false },
-     _idleStart: 1753,
-     parser:
+     _idleStart: 2590,
+     parser: 
       HTTPParser {
         '0': [Function: parserOnHeaders],
         '1': [Function: parserOnHeadersComplete],
@@ -612,7 +611,7 @@ ncomingMessage {
      _paused: false,
      read: [Function],
      _consuming: true,
-     _httpMessage:
+     _httpMessage: 
       ServerResponse {
         domain: null,
         _events: [Object],
@@ -642,13 +641,15 @@ ncomingMessage {
         _headerNames: [Object],
         _onPendingData: [Function: updateOutgoingData],
         req: [Circular],
-        locals: {} } },
+        locals: {},
+        writeHead: [Function: writeHead],
+        end: [Function: end] } },
   _consuming: false,
   _dumped: false,
   next: [Function: next],
   baseUrl: '',
-  originalUrl: '/signcheck',
-  _parsedUrl:
+  originalUrl: '/login',
+  _parsedUrl: 
    Url {
      protocol: null,
      slashes: null,
@@ -659,13 +660,13 @@ ncomingMessage {
      hash: null,
      search: null,
      query: null,
-     pathname: '/signcheck',
-     path: '/signcheck',
-     href: '/signcheck',
-     _raw: '/signcheck' },
+     pathname: '/login',
+     path: '/login',
+     href: '/login',
+     _raw: '/login' },
   params: {},
   query: {},
-  res:
+  res: 
    ServerResponse {
      domain: null,
      _events: { finish: [Function: resOnFinish] },
@@ -688,7 +689,7 @@ ncomingMessage {
      _trailer: '',
      finished: false,
      _headerSent: false,
-     socket:
+     socket: 
       Socket {
         connecting: false,
         _hadError: false,
@@ -714,14 +715,14 @@ ncomingMessage {
         _idleTimeout: 120000,
         _idleNext: [Object],
         _idlePrev: [Object],
-        _idleStart: 1753,
+        _idleStart: 2590,
         parser: [Object],
         on: [Function: socketOnWrap],
         _paused: false,
         read: [Function],
         _consuming: true,
         _httpMessage: [Circular] },
-     connection:
+     connection: 
       Socket {
         connecting: false,
         _hadError: false,
@@ -747,7 +748,7 @@ ncomingMessage {
         _idleTimeout: 120000,
         _idleNext: [Object],
         _idlePrev: [Object],
-        _idleStart: 1753,
+        _idleStart: 2590,
         parser: [Object],
         on: [Function: socketOnWrap],
         _paused: false,
@@ -759,9 +760,40 @@ ncomingMessage {
      _headerNames: { 'x-powered-by': 'X-Powered-By' },
      _onPendingData: [Function: updateOutgoingData],
      req: [Circular],
-     locals: {} },
-  route:
-   Route {
-     path: '/signcheck',
-     stack: [ [Object] ],
-     methods: { post: true } } }
+     locals: {},
+     writeHead: [Function: writeHead],
+     end: [Function: end] },
+  _parsedOriginalUrl: 
+   Url {
+     protocol: null,
+     slashes: null,
+     auth: null,
+     host: null,
+     port: null,
+     hostname: null,
+     hash: null,
+     search: null,
+     query: null,
+     pathname: '/login',
+     path: '/login',
+     href: '/login',
+     _raw: '/login' },
+  sessionStore: 
+   MemoryStore {
+     domain: null,
+     _events: 
+      { disconnect: [Function: ondisconnect],
+        connect: [Function: onconnect] },
+     _eventsCount: 2,
+     _maxListeners: undefined,
+     sessions: {},
+     generate: [Function] },
+  sessionID: 'f83HIESzpV_BiJ9vvtfRuLO_RlWHQKNl',
+  session: 
+   Session {
+     cookie: 
+      { path: '/',
+        _expires: null,
+        originalMaxAge: null,
+        httpOnly: true } },
+  route: Route { path: '/login', stack: [ [Object] ], methods: { get: true } } }

@@ -46,7 +46,7 @@
                         <input type="password" class="form-control" name="password" id="password" placeholder="请输入密码">
                     </div>
                     <a href="/login" class="btn btn-default">已有账户?登录</a>
-                    <a class="btn btn-success" id="login">确认注册</a>
+                    <a class="btn btn-success" id="sign">确认注册</a>
                 </form>
             </div>
         </div>
@@ -54,24 +54,3 @@
     </div>
 </body>
 <% include footer.ejs %>
-<script>
-    $('#login').on('click',function(){
-        var data = $('#signForm').serialize();
-        console.log(data);
-        $.ajax({
-            url:'/signcheck',
-            data:data,
-            type:'post',
-            beforeSend:function(){
-                $('#login').addClass('disabled');
-            },
-            success:function(data){
-                console.log(data);
-                $('#login').removeClass('disabled');
-                if(data.err){
-                    window.location.href='/';
-                }
-            }
-        });
-    });
-</script>

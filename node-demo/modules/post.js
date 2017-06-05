@@ -1,24 +1,23 @@
 /**
+ * Created by Administrator on 2017/6/5.
+ */
+/**
  * Created by Administrator on 2017/6/4.
  */
 const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
-
 const db = require('./db.js');
 
 const Schema = mongoose.Schema;
 
-const UerSchema = new Schema({
+const PostSchema = new Schema({
+    postContent:String,
     username:String,
-    password:String,
-    nick:String,
-    email:String,
-    args:Array,
     create_at:Date,
     update_at:Date
 });
 
 
-const User = mongoose.model('User',UerSchema);
+const Post = mongoose.model('Post',PostSchema);
 
-module.exports = User;
+module.exports = Post;

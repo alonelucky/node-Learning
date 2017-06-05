@@ -26,6 +26,12 @@ app.post('/logincheck',router.doLogin);  // ajax登录
 app.get('/sign',router.showSignPage);  // 展示注册页
 app.post('/signcheck',router.doSign);  // ajax注册
 app.post('/logout',router.doLogout);  // 登出页面
+app.post('/post',router.doPost);  // 发布心情
+
+
+// 用户相关
+app.get('/user/setting',router.showUserSettings);  // 个人信息
+app.post('/user/settings',router.doUserSettings);  // 个人信息
 
 
 

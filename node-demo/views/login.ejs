@@ -35,18 +35,18 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
-                <form>
+                <form id="loginForm">
                     <h2>请登录 : </h2>
                     <div class="input-group">
                         <span class="input-group-addon" id="sizing-addon1">用户名</span>
-                        <input type="text" class="form-control" placeholder="请输入用户名">
+                        <input type="text" class="form-control" name="username" placeholder="请输入用户名">
                     </div>
                     <div class="input-group">
                         <span class="input-group-addon" id="sizing-addon1">密码</span>
-                        <input type="password" class="form-control" placeholder="请输入密码">
+                        <input type="password" class="form-control" name="password" placeholder="请输入密码">
                     </div>
-                    <a class="btn btn-success">确认登录</a>
                     <a href="/sign" class="btn btn-default">没有账户?注册</a>
+                    <a class="btn btn-success" id="login">确认登录</a>
                 </form>
             </div>
         </div>
