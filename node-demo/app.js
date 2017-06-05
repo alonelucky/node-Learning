@@ -31,7 +31,7 @@ app.post('/post',router.doPost);  // 发布心情
 
 // 用户相关
 app.get('/user/setting',router.showUserSettings);  // 个人信息
-app.post('/user/settings',router.doUserSettings);  // 个人信息
+app.post('/user/setting/save',router.doUserSettings);  // 个人信息保存
 
 
 

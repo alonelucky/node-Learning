@@ -6,6 +6,7 @@ const User = require('../modules/user.js');
 const Post = require('../modules/post.js');
 const crypto = require('crypto');
 
+const form = formidable.IncomingForm();
 // 向外暴露函数
 exports.showIndexPage = showIndexPage;
 exports.showLoginPage = showLoginPage;
@@ -130,20 +131,45 @@ function showUserSettings(req,res){
         res.redirect('http://'+req.headers.host);
         return;
     }
-    res.render('usersetting',{
-        loged : req.session.login,
-        username: req.session.username
+
+    User.findOne({username:req.query.username},function(err,obj){
+        if(err){
+            res.render('usersetting',{
+                loged : req.session.login,
+                username: req.session.username
+            });
+            return;
+        }
+        res.render('usersetting',{
+            loged : req.session.login,
+            username: req.session.username,
+            nick:obj._doc.nick,
+            items:obj._doc.args
+        });
     });
+
 }
 
 // 用户修改
 function doUserSettings(req,res){
-    if(req.session.login!='1'){
+    // 判断当前是否登录,且用户是否为当前用户
+    if( !(req.session.login=='1') ){
         res.redirect('http://'+req.headers.host);
         return;
     }
-    res.render('usersetting',{
-        loged : req.session.login,
-        username: req.session.username
+    form.parse(req,function(err,fields){
+        console.log(fields);
+        User.findOne({username:req.session.username},function(err,obj){
+            if(err){
+                res.send({err:-1,msg:'保存错误'});
+                return;
+            }
+
+            obj._doc.nick = req.query.nick;
+            obj.save();
+        });
     });
+
+
+
 }

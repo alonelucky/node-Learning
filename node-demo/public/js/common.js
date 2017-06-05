@@ -74,3 +74,19 @@ $('#logout').on('click',function(){
         }
     })
 });
+
+// 用户信息保存
+$('#submitUserBtn').on('click',function(){
+    $.ajax({
+        url:'/user/setting/save',
+        type:'post',
+        data:$('#userDetailsForm').serialize(),
+        beforeSend:function(){
+            $('#submitUserBtn').addClass('disable');
+        },
+        success:function(data){
+            $('#submitUserBtn').removeClass('disable');
+            console.log(data);
+        }
+    });
+});

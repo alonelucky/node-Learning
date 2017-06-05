@@ -67,24 +67,20 @@
                             <form id="userDetailsForm">
                                 <div class="input-group">
                                     <span class="input-group-addon" id="basic-addon1">用户名</span>
-                                    <input type="text" class="form-control" name="username" placeholder="用户名" disabled>
+                                    <input type="text" class="form-control" name="username" value="<%=username%>" disabled>
                                 </div>
                                 <div class="input-group">
                                     <span class="input-group-addon" id="basic-addon1">昵称</span>
-                                    <input type="text" class="form-control" name="nick" placeholder="昵称">
+                                    <input type="text" class="form-control" name="nick" <%=nick %> placeholder="昵称">
                                 </div>
-                                <div class="input-group">
-                                    <span class="input-group-addon" id="basic-addon1">爱好</span>
-                                    <input type="text" class="form-control" name="hobby" placeholder="爱好">
-                                </div>
-                                <div class="input-group">
-                                    <span class="input-group-addon" id="basic-addon1">格言</span>
-                                    <input type="text" class="form-control" name="say" placeholder="人生格言">
-                                </div>
-                                <div class="input-group">
-                                    <span class="input-group-addon" id="basic-addon1">邮箱</span>
-                                    <input type="text" class="form-control" name="email" placeholder="Email">
-                                </div>
+                                <% for(var i=0;i<items.length;i++){%>
+                                    <div class="input-group">
+                                        <span class="input-group-addon" id="basic-addon1"><%=items[i].name%></span>
+                                        <input type="text" class="form-control" name="hobby" value="<%=items[i].content%>">
+                                    </div>
+                                <%}%>
+                                <button id="submitUserBtn" class="btn btn-success" type="button">保存信息</button>
+                                <button id="submitUserBtn" class="btn btn-default" type="reset">重置填写</button>
                             </form>
                         </div>
                         <div role="tabpanel" class="tab-pane" id="settings">
