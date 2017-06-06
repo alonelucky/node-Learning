@@ -12,4 +12,6 @@ db.once('open',function(err){
     console.log('数据库连接成功');
 });
 
-module.exports = db;
+
+module.exports.db = db;
+module.exports.Schema =  mongoose.Schema;

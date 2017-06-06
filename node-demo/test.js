@@ -29,11 +29,6 @@ var userModel = db.model('User',userSchema);
 
 
 
-
-
-
-
-
 var postScema = new Schema({
     content:String,
     author:String,
