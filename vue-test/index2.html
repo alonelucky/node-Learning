@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-CN">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta charset="UTF-8">
+    <title>Vue学习</title>
+</head>
+<body>
+<!--处理用户输入-->
+<div id="app">
+    <p v-on:click="resverseMessage">{{ message }}</p>
+</div>
+<!--双向绑定-->
+<div id="app2">
+    <input type="text" v-model="message"/>
+    <p>{{message}}</p>
+</div>
+</body>
+<script src="src/vue.min.js"></script>
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:{
+            message:'Hello world'
+        },
+        methods:{
+            resverseMessage:function(){
+                this.message = this.message.split('').reverse().join('');
+            }
+        }
+    });
+
+    var app2 = new Vue({
+        el:'#app2',
+        data:{
+            message:'Abc'
+        }
+    });
+
+
+</script>
+</html>

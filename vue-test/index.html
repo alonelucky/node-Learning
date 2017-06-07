@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-CN">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta charset="UTF-8">
+    <title>Vue学习</title>
+</head>
+<body>
+<!--基本信息-->
+    <div id="app">
+        {{ message }}
+    </div>
+<!--绑定参数-->
+    <p id="text">
+            <span v-bind:title="message">
+                鼠标悬停查看此处信息
+            </span>
+    </p>
+<!--条件与循环-->
+<div id="app3">
+    <p v-if="seen">能看见</p>
+    <p v-if="noseen">能看见</p>
+</div>
+
+<!--循环-->
+<div id="app4">
+    <ul>
+        <li v-for="item in items">
+            {{item.content}}
+        </li>
+    </ul>
+</div>
+</body>
+<script src="src/vue.min.js"></script>
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:{
+            message:'Hello world'
+        }
+    });
+
+    var text = new Vue({
+        el:'#text',
+        data:{
+            message:'页面加载于'+new Date()
+        }
+    });
+
+    var app3 = new Vue({
+        el:'#app3',
+        data:{
+            seen:true,
+            noseen:false
+        }
+    });
+    var app4 = new Vue({
+        el:'#app4',
+        data:{
+            items:[
+                {content:'我是第一条'},
+                {content:'我是第二条'},
+                {content:'我是第三条'},
+                {content:'我是第四条'},
+                {content:'我是第五条'}
+            ]
+        }
+    });
+</script>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-CN">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta charset="UTF-8">
+    <title>Vue学习</title>
+</head>
+<body>
+<!--此学习笔记-->
+    <div id="app">
+        <ol>
+            <!-- for循环需写在这里,绑定末班中自定义的属性和数据循环的数据-->
+            <todo-item v-for="item in items" v-bind:todo="item"></todo-item>
+        </ol>
+    </div>
+</body>
+<script src="src/vue.min.js"></script>
+<script>
+    // 定义模板及模板中自定义的属性
+    Vue.component('todo-item',{
+        props:['todo'],
+        template:'<li>{{todo.content}}</li>'
+    });
+    // 新的函数作用域,el该函数作用的区域,data向页面输出的数据
+    var app = new Vue({
+        el:'#app',
+        data:{
+            items:[
+                {content:'我是内容一'},
+                {content:'我是内容二'},
+                {content:'我是内容三'},
+                {content:'我是内容四'},
+                {content:'我是内容五'}
+            ]
+        }
+    })
+
+
+</script>
+</html>
