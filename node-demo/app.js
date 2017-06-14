@@ -21,7 +21,7 @@ app.use(session({
 }));
 
 // 静态资源路由
-app.use(express.static('./public'));
+// app.use(express.static('./public'));
 
 // 路由展示,前台相关
 app.get('/',showRouter.index);           // 展示首页
@@ -38,8 +38,8 @@ app.post('/post',doRouter.postTo);       // 发布心情
 app.get('/showposts',showRouter.postJson);       // 心情展示
 
 // 路由展示,后台相关
-app.get('/user/setting',showRouter.userSettings);       // 个人信息
-app.post('/user/setting/save',doRouter.userSettings);    // 个人信息保存
+app.get('/user/:id',showRouter.userSettings);       // 个人信息
+app.post('/user/:id',doRouter.userSettings);    // 个人信息保存
 
 // 测试函数路由
 app.get('/test',router.Test);      // 测试路由

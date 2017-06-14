@@ -2,7 +2,7 @@
  * Created by Administrator on 2017/6/6.
  */
 // 引入数据模块
-const User = require('../modules/user.js');     // 引入用户模型
+const UserModel = require('../modules/user.js');     // 引入用户模型
 const PostModel = require('../modules/post.js').Post;     // 引入文章模型
 const crypto = require('crypto');   // 引入加密模块
 const formidable = require('formidable');   // 表单处理模块
@@ -20,13 +20,13 @@ function doSign(req,res){
         //首先验证用户名是否存在
         var formUsername = fields.username;
         var formpassword = fields.password;
-        User.find({username:formUsername},function(err,data){
+        UserModel.find({username:formUsername},function(err,data){
             if(data.length!=0){
                 res.end({err:-1,msg:'当前用户名已被注册'});
                 return;
             }
             var hashPW = crypto.createHmac('sha1',formUsername).update(formpassword).digest('hex');
-            User.create({username:formUsername,password:hashPW,create_at:new Date().getTime()},function(err){
+            UserModel.create({username:formUsername,password:hashPW,create_at:new Date().getTime()},function(err){
                 req.session.login='1';
                 req.session.username=fields.username;
                 res.send({err:1,msg:'注册成功'});
@@ -41,7 +41,7 @@ function doLogin(req,res){
     form.parse(req,function(err,fields){
         var formUsername = fields.username;
         var formPassword = fields.password;
-        User.find({'username':formUsername},function(err,obj){
+        UserModel.find({'username':formUsername},function(err,obj){
             // 判断当前用户名是否注册
             // console.log(obj);
             if(obj.length==0){
@@ -102,7 +102,7 @@ function doUserSettings(req,res){
 
     form.parse(req,function(err,fields){
         console.log(fields);
-        User.findOne({username:req.session.username},function(err,obj){
+        UserModel.findOne({username:req.session.username},function(err,obj){
             if(err){
                 res.end({err:-1,msg:'保存错误'});
                 return;
