@@ -4,6 +4,7 @@ node-wechat/node_modules/*
 node-headimg/node_modules/*
 node-database/node_modules/*
 node-demo/node_modules/*
+node-blog/node_modules/*
 vue-test/node_modules/*
 node-wechat/.idea/*
 node-login/.idea/*
@@ -11,4 +12,5 @@ node-liuyan/.idea/*
 node-headimg/.idea/*
 node-database/.idea/*
 node-demo/.idea/*
+node-blog/.idea/*
 vue-test/.idea/*
