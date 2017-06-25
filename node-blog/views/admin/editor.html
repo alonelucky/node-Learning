@@ -1,0 +1,52 @@
+﻿<% extends './layout/layout.html' %>
+
+<% block adminHeader %>
+<h1 class="page-header">
+    新建文章
+</h1>
+<% endblock %>
+
+
+<% block adminbread %>
+<li><a href="/admin">后台首页</a></li>
+<li class="active">文章</li>
+<% endblock %>
+
+<% block mainContent %>
+<div id="page-inner">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="card-title">
+                        <div class="title">增加文章</div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <form id="updatePostForm">
+                        <div class="sub-title">分类</div>
+                        <div>
+                            <select class="selectbox" name="category">
+                                <% for item in categories %>
+                                    <option value="{{item._id.toString()}}">{{item.name}}</option>
+                                    <% if post.category.name == item.name %>
+                                    <option value="{{item._id.toString()}}" selected>{{item.name}}</option>
+                                    <% endif %>
+                                <% endfor %>
+                            </select>
+                        </div>
+                        <div class="sub-title">文章标题</div>
+                        <div><input type="text" class="form-control" name="title" placeholder="文章标题" value="{{post.title}}"></div>
+                        <div class="sub-title">正文内容</div>
+                        <div><textarea class="form-control" name="content" rows="10">{{post.content}}</textarea></div>
+                        <div class="sub-title">文章摘要</div>
+                        <div><textarea class="form-control" name="summary" rows="3">{{post.summary}}</textarea></div>
+                        <input type="hidden" name="postID" value="{{post._id.toString()}}">
+                    </form>
+                    <button class="btn btn-primary" id="updatePost">发表文章</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<% endblock %>

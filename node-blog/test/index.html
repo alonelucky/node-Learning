@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-CN">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+<script>
+    // 创建一个Person类
+    var Person = function(name,sex){
+        this.name=name;
+        this.sex=sex;
+    }
+
+    // 增加方法
+    Person.prototype.sayHello = function(){
+        console.log('Hi,my name is '+this.name+', my sex is '+this.sex);
+    }
+
+    // 实例化一个person
+    var xiaoming = new Person('xiaoming','男');
+
+
+
+
+    // 再创建一个类student,具有person的全部属性
+    function Student(c,g){
+        this.class=c;
+        this.grade= g;
+        Person.call(this,c,g);
+    }
+
+
+    Student.prototype = Object.create(Person.prototype);
+
+    Student.prototype.sayHello = function(){
+        console.log('Hi,my name is '+this.name+', my sex is '+this.sex+'.My study at class '+this.class+',Grade '+this.grade);
+    }
+
+    var xiaogang = new Student('xiaogang','nan','5','2');
+
+    // 调用方法
+    xiaoming.sayHello();
+    console.log(xiaoming.__proto__);
+
+    xiaogang.sayHello();
+    console.log(xiaogang.__proto__.__proto__);
+
+
+</script>
+</html>

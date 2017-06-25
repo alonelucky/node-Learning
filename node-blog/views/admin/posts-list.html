@@ -1,0 +1,56 @@
+﻿<% extends './layout/layout.html' %>
+
+<% block adminHeader %>
+<h1 class="page-header">
+    {{title}}
+</h1>
+<% endblock %>
+
+
+<% block adminbread %>
+<li><a href="/admin">后台首页</a></li>
+<li class="active">{{title}}</li>
+<% endblock %>
+
+
+
+<% block mainContent %>
+<div id="page-inner">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Advanced Tables -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    {{title}}
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                            <thead>
+                            <tr>
+                                <% for item in fields %>
+                                <th>{{item}}</th>
+                                <% endfor %>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <% for item in datas %>
+                            <tr class="gradeX">
+                                <td>{{item.title}}</td>
+                                <td>{{item.author.username}}</td>
+                                <td>{{item.category.name}}</td>
+                                <td>{{item.create_at}}</td>
+                                <td><a href="javascript:;" class="deletePost" data-id="{{item._id.toString()}}">删除</a> / <a href="/admin/editor/{{item._id.toString()}}" class="">编辑</a></td>
+                            </tr>
+                            <% endfor %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!--End Advanced Tables -->
+        </div>
+    </div>
+</div>
+<% endblock %>

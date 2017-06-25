@@ -1,0 +1,64 @@
+﻿<% extends './layout/layout.html' %>
+
+<% block adminHeader %>
+<h1 class="page-header">
+    {{title}}
+</h1>
+<% endblock %>
+
+
+<% block adminbread %>
+<li><a href="/admin">后台首页</a></li>
+<li class="active">{{title}}</li>
+<% endblock %>
+
+
+
+<% block mainContent %>
+<div id="page-inner">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Advanced Tables -->
+
+            <div class="sub-title" style="padding-top: 0">增加分类</div>
+            <div style="margin-bottom: 1rem">
+                <form id="addCategoryForm">
+                    <input type="text" class="form-control" name="category" placeholder="分类名称">
+                </form>
+
+                <button class="btn btn-primary" id="addCategory">增加</button>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    {{title}}
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                            <thead>
+                            <tr>
+                                <% for item in fields %>
+                                <th>{{item}}</th>
+                                <% endfor %>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <% for item in datas %>
+                            <tr class="gradeX">
+                                <td>{{item.name}}</td>
+                                <td>{{item.postsNum}}</td>
+                                <td>{{item._id}}</td>
+                                <td><a href="javascript:;" class="deleteCategory" data-id={{item._id.toString()}}>删除</a></td>
+                            </tr>
+                            <% endfor %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!--End Advanced Tables -->
+        </div>
+    </div>
+</div>
+<% endblock %>
