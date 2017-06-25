@@ -1,0 +1,53 @@
+{% extends './commons/layout.html' %}
+
+{% block navPageToggle %}
+<li><a href="/">前台首页</a></li>
+{% endblock %}
+
+{% block headText %}
+<a class="navbar-brand" href="/admin"><b>后台管理页</b></a>
+{% endblock %}
+
+{% block layoutBody %}
+<div class="col-md-2" style="padding: 0">
+    {% include './commons/admin-sidebar.html' %}
+</div>
+<div class="col-md-8">
+    <h2>系统状态</h2>
+    <hr/>
+    <table class="table table-hover table-striped">
+        <tbody>
+            <tr>
+                <td>操作系统</td>
+                <td>win</td>
+                <td>CPU占用</td>
+                <td>10%</td>
+            </tr>
+            <tr>
+                <td>内存占用</td>
+                <td>20%</td>
+                <td>node版本</td>
+                <td>8.1.0</td>
+            </tr>
+            <tr>
+                <td>进程号</td>
+                <td>1200</td>
+                <td>数据库类型</td>
+                <td>mongodb</td>
+            </tr>
+            <tr>
+                <td>文章数</td>
+                <td>25</td>
+                <td>评论数</td>
+                <td>35</td>
+            </tr>
+            <tr>
+                <td>浏览量</td>
+                <td>120</td>
+                <td>分类数</td>
+                <td>35</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}

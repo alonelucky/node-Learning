@@ -1,0 +1,67 @@
+{% extends './commons/layout.html' %}
+
+{% block navPageToggle %}
+<li><a href="/">前台首页</a></li>
+{% endblock %}
+
+{% block headText %}
+<a class="navbar-brand" href="/admin"><b>后台管理页</b></a>
+{% endblock %}
+
+{% block layoutBody %}
+<div class="col-md-2" style="padding: 0">
+    {% include './commons/admin-sidebar.html' %}
+</div>
+<div class="col-md-8">
+    <h2>写文章</h2>
+    <hr/>
+    <form action="">
+        <div class="form-group">
+            <label for="title">文章标题</label>
+            <input type="text" class="form-control" name="title" id="title" placeholder="标题">
+        </div>
+        <div class="form-group">
+            <label for="content">正文内容</label>
+            <textarea type="text" class="form-control" name="content" id="content" placeholder="正文"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="summary">文章摘要</label>
+            <textarea type="text" class="form-control" name="content" id="summary" placeholder="摘要"></textarea>
+        </div>
+    </form>
+    <p class="pull-right"><button class="btn btn-default">存入草稿</button>
+        <button class="btn btn-success">立即发表</button></p>
+
+</div>
+<div class="col-md-2" style="padding: 0;">
+   <h3>文章基本信息</h3>
+    <hr/>
+    <div class="panel panel-default">
+        <div class="panel-heading">文章分类</div>
+        <div class="panel-body">
+            <select name="category" id="category" class="form-control">
+                <option value="01">分类1</option>
+                <option value="02">分类2</option>
+                <option value="03">分类3</option>
+                <option value="04">分类4</option>
+                <option value="05">分类5</option>
+                <option value="other">自定义</option>
+            </select>
+            <input type="text" name="category-other" class="form-control"/>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">文章信息</div>
+        <table class="table">
+            <tr>
+                <td>修改时间</td>
+                <td>2017-06-06</td>
+            </tr>
+            <tr>
+                <td>发布日期</td>
+                <td>2017-05-05</td>
+            </tr>
+        </table>
+    </div>
+</div>
+{% endblock %}

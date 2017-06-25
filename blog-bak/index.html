@@ -1,0 +1,38 @@
+{% extends './commons/layout.html' %}
+
+{% block navPageToggle %}
+<li><a href="/admin">后台管理</a></li>
+{% endblock %}
+
+{% block headText %}
+<a class="navbar-brand" href="/"><b>博客首页</b></a>
+{% endblock %}
+
+{% block layoutBody %}
+<div class="col-md-8">
+    <div class="post">
+        <h3 class="post-head"><i class="fa fa-book"></i> {{ blogName }}</h3>
+        <hr style="margin-top: 0"/>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur dicta dignissimos dolorum, est labore vel. Cumque dolores eligendi eos excepturi fuga id illum ipsa, quasi qui sint velit voluptates voluptatum.</p>
+        <p class="clearfix"><a href="/single.html" class="pull-right"><i class="fa fa-share"></i> 阅读全文</a></p>
+        <p class="post-footer clearfix">
+            <span><i class="fa fa-tags"></i> 分类 : <a href="/category.html">未分类</a></span>
+            <span class="pull-right"><i class="fa fa-calendar"></i> 时间 : 2017-05-05</span>
+            <span class="pull-right"><i class="fa fa-eye"></i> 36 </span>
+            <span class="pull-right"><i class="fa fa-heart"></i> 15 </span>
+        </p>
+    </div>
+</div>
+<div class="col-md-4">
+    <div class="list-card">
+        <h3 class="title">热门文章</h3>
+        <hr style="margin: 0"/>
+        <ul class="list">
+            <li class="list-item"><a href="#">文章标题</a></li>
+            <li class="list-item"><a href="#">文章标题</a></li>
+            <li class="list-item"><a href="#">文章标题</a></li>
+            <li class="list-item"><a href="#">文章标题</a></li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
