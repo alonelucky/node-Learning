@@ -36,6 +36,7 @@ function category(req,res){
 }
 
 function blog(req,res){
+    
     res.render('single');
 }
 

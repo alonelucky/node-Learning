@@ -4,12 +4,13 @@
 const express = require('express');
 const router = express.Router();
 const showController = require('./controllers/show');
+const mwRouter = require('../routers/mwRouter');
 
 
-router.get('/',showController.show);
-router.get('/category',showController.category);
-router.get('/blog',showController.blog);
-router.get('/sreach',showController.sreach);
+router.get('/',mwRouter.siteViews,showController.show);
+router.get('/category/:id',mwRouter.siteViews,showController.category);
+router.get('/blog/:id',mwRouter.siteViews,showController.blog);
+router.get('/sreach',mwRouter.siteViews,showController.sreach);
 
 
 

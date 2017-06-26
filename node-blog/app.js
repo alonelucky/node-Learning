@@ -28,7 +28,7 @@ app.set('view engine','html');
 // app.set('views', __dirname + '/views');
 
 // 处理静态资源(上线后交由nginx处理)
-app.use(express.static('public'));
+// app.use(express.static('public'));
 
 // 使用session中间件处理用户登录,结合connect-mongo实现会话保持
 app.use(session({
@@ -43,7 +43,7 @@ app.use(session({
 app.use(bodyParser());
 
 // 设置路由
-app.use('/',mwRouter.admin,mwRouter.siteViews,showRoute);
+app.use('/',mwRouter.admin,showRoute);
 app.use('/api',apiRoute);
 app.use('/admin',mwRouter.check_user_loged,adminRoute);
 

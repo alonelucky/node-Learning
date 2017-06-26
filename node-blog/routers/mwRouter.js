@@ -28,20 +28,17 @@ function admin(req,res,next){
 function siteViews(req,res,next){
 
     (async function(){
-        // 判断数据库是否已经存在站点浏览量的项
-        let views = optionModel.findOne({name:'viwes'});
 
-        console.log(views);
-        console.log(__filename);
+        // 判断数据库是否已经存在站点浏览量的项
+        let views = await optionModel.findOne({name:'views'});
+
         // 如果不存在则创建该项,并赋值为1
         if(!views){
-            optionModel.create({name:'views',value:1});
+            await optionModel.create({name:'views',value:1});
             return;
         }
 
-        // 如果存在则直接执行+1
-        views.update({$inc:{value:1}});
-
+        await views.update({$inc:{value:1}});
 
     })();
 
