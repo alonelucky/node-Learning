@@ -30,7 +30,7 @@ function list(req,res){
     if(req.query.uri=='cat'){
 
         // 使用async await优化代码流程
-        let catData = async function(){
+        (async function(){
             // 查询并获取数据
             let data = await categoryModel.find({});
             // 将数据输出到页面
@@ -39,8 +39,7 @@ function list(req,res){
                 fields:['分类名称','文章数','创建日期'],
                 datas:data
             });
-        }
-        catData();
+        })();
 
         return;
     }
@@ -62,9 +61,8 @@ function list(req,res){
 // 编辑文章页面
 function editor(req,res){
 
-    console.log(req.params.id);
-
-    let doEditor = async function () {
+    // 只执行async函数优化异步代码
+    (async function () {
 
         let cate = await categoryModel.find({});
 
@@ -75,8 +73,7 @@ function editor(req,res){
             categories:cate,
             post:post
         });
-    }
-    doEditor();
+    })();
 }
 
 

@@ -60,11 +60,18 @@ const categorySchema = new Schema({
 
 const categoryModel = db.model('category',categorySchema);
 
+// 增加站点设置项
+const optionSchema = new Schema({
+    name:String,
+    value:Number
+});
 
+const optionModel = db.model('option',optionSchema);
 
 // 向外输出用户模型
 module.exports.user = userModel;
 module.exports.post = postModel;
 module.exports.category = categoryModel;
+module.exports.option = optionModel;
 
 

@@ -2,6 +2,7 @@
  * Created by Administrator on 2017/6/21.
  */
 const userModel = require('../modules/data').user;
+const optionModel = require('../modules/data').option;
 const app = require('express')();
 // 此文件为路由中间件
 module.exports.admin=admin;
@@ -9,10 +10,7 @@ module.exports.check_user_authority=check_user_authority;  // 检查用户权限
 module.exports.check_user_form=check_user_form;             // 检查用户登录注册表单
 module.exports.check_user_loged=check_user_loged;           // 检查用户是否登录
 module.exports.check_username_signed=check_username_signed; // 检查用户是否已被注册
-module.exports.testA=testA; // 测试路由
-module.exports.testB=testB; // 测试路由
-module.exports.testC=testC; // 测试路由
-module.exports.testD=testD; // 测试路由
+module.exports.siteViews=siteViews; // 站点访问量
 
 
 // 定义返回信息
@@ -24,6 +22,29 @@ const reMessage = {
 
 function admin(req,res,next){
      // console.log(req.session);
+    next();
+}
+
+function siteViews(req,res,next){
+
+    (async function(){
+        // 判断数据库是否已经存在站点浏览量的项
+        let views = optionModel.findOne({name:'viwes'});
+
+        console.log(views);
+        console.log(__filename);
+        // 如果不存在则创建该项,并赋值为1
+        if(!views){
+            optionModel.create({name:'views',value:1});
+            return;
+        }
+
+        // 如果存在则直接执行+1
+        views.update({$inc:{value:1}});
+
+
+    })();
+
     next();
 }
 
@@ -79,30 +100,3 @@ function check_username_signed(req,res,next){
             next();
         });
 }
-
-function testA(req,res,next){
-
-    app.locals.data={a:123,b:'sdfsdf'};
-    req.mydata={a:123,b:'sdfsdf'};
-
-    next();
-}
-
-function testB(req,res,next){
-
-    console.log(req.session);
-
-    res.end();
-}
-
-function testC(req,res,next){
-
-    next();
-}
-
-function testD(req,res,next){
-
-    next();
-}
-
-

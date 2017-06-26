@@ -15,9 +15,6 @@ router.all('/addcategory',apiController.addCategory);
 router.all('/removecategory',apiController.removeCategory);
 router.all('/removepost',apiController.removePost);
 router.all('/updatepost',apiController.updatePost);
-router.all('/test',mwRouter.testA,mwRouter.testB);
-router.all('/test1',mwRouter.testC,mwRouter.testD);
-
 
 
 module.exports=router;

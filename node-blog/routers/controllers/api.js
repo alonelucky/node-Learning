@@ -123,7 +123,7 @@ function addPost(req,res){
     // 拿到session中的用户信息
     let authorObj = {author: req.session.userInfo.userID};
     // 增加到数据中
-    postData = Object.assign(req.body,authorObj);
+    let postData = Object.assign(req.body,authorObj);
     // 添加新数据
     postModel.create(postData)
         .then((result)=>{
@@ -146,7 +146,7 @@ function addCategory(req,res){
     let catName = req.body.category;
 
     // 使用async await优化异步代码
-    let cate = async function (){
+    (async function (){
 
         // 查找匹配的分类名称
         let reslut = await categoryModel.findOne({name:catName});
@@ -173,9 +173,7 @@ function addCategory(req,res){
         reMessage.msg='分类创建成功';
         reMessage.code=0;
         res.send(reMessage);
-    }
-    // 执行async函数
-    cate();
+    })();
 }
 
 

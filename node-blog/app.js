@@ -43,7 +43,7 @@ app.use(session({
 app.use(bodyParser());
 
 // 设置路由
-app.use('/',mwRouter.admin,showRoute);
+app.use('/',mwRouter.admin,mwRouter.siteViews,showRoute);
 app.use('/api',apiRoute);
 app.use('/admin',mwRouter.check_user_loged,adminRoute);
 
