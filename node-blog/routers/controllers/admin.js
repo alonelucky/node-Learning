@@ -6,6 +6,7 @@ const postModel = require('../../modules/data').post;
 
 // 展示网站后台首页
 function admin(req,res){
+    // 渲染后台首页
     res.render('admin/index',{
         login:req.session.login,
         userInfo:req.session.userInfo
@@ -14,7 +15,7 @@ function admin(req,res){
 
 // 增加文章页面
 function addPost(req,res){
-
+    // 获取所有分类
     categoryModel.find({})
         .then((data)=>{
             res.render('admin/addpost',{
@@ -44,7 +45,7 @@ function list(req,res){
         return;
     }
 
-    // 获取博客信息
+    // 获取全部博客信息
     postModel.find({})
         .populate({path:'author',select:'username'})
         .populate({path:'category',select:'name'})

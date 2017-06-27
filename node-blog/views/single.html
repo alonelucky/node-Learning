@@ -5,7 +5,7 @@
 <div class="clean-breadcrumb">
     <a href="/">首页</a>
     <span class="separator">&#x2F;</span>
-    <a href="#">分类</a>
+    <a href="/category/{{blog.category._id.toString()}}">{{blog.category.name}}</a>
     <span class="separator">&#x2F;</span>
     <a>博客名称</a>
 </div>
@@ -14,20 +14,12 @@
 
 <% block mainContent %>
     <article class="blog-post">
-        <header>
-            <div class="lead-image">
-                <img src="/img/single-post.jpg" alt="" class="img-responsive">
-            </div>
-        </header>
         <div class="body">
-            <h1>Responsive HTML5 Template</h1>
+            <h1>{{blog.title}}</h1>
             <div class="meta">
-                <i class="fa fa-user"></i> John Doe <i class="fa fa-calendar"></i>23 Agustus 2015<i class="fa fa-comments"></i><span class="data"><a href="#comments">3 Comments</a></span>
+                <i class="fa fa-user"></i> {{blog.author.username}} <i class="fa fa-calendar"></i>{{blog.update_at.toLocaleString()}}<i class="fa fa-comments"></i><span class="data"><a href="#comments">{{blog.coments.length}}</a></span>
             </div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem quas voluptatem et minima quo amet ducimus. Voluptatum soluta tenetur ducimus fugiat, sint voluptate eveniet adipisci nulla asperiores distinctio laudantium eos. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident tenetur, consectetur dolores nostrum, numquam facere a dicta eum nam suscipit consequuntur dolorem aspernatur molestias vero quo id tempore vel possimus.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem quas voluptatem et minima quo amet ducimus. Voluptatum soluta tenetur ducimus fugiat, sint voluptate eveniet adipisci nulla asperiores distinctio laudantium eos. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident tenetur, consectetur dolores nostrum, numquam facere a dicta eum nam suscipit consequuntur dolorem aspernatur molestias vero quo id tempore vel possimus.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem quas voluptatem et minima quo amet ducimus. Voluptatum soluta tenetur ducimus fugiat, sint voluptate eveniet adipisci nulla asperiores distinctio laudantium eos. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident tenetur, consectetur dolores nostrum, numquam facere a dicta eum nam suscipit consequuntur dolorem aspernatur molestias vero quo id tempore vel possimus.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem quas voluptatem et minima quo amet ducimus. Voluptatum soluta tenetur ducimus fugiat, sint voluptate eveniet adipisci nulla asperiores.</p>
+            <p>{{blog.content}}</p>
         </div>
     </article>
     <aside class="social-icons clearfix">

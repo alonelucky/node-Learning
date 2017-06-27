@@ -47,8 +47,8 @@
                             <% for item in datas %>
                             <tr class="gradeX">
                                 <td>{{item.name}}</td>
-                                <td>{{item.postsNum}}</td>
-                                <td>{{item._id}}</td>
+                                <td>{{item.posts.length}}</td>
+                                <td>{{item.update_at}}</td>
                                 <td><a href="javascript:;" class="deleteCategory" data-id={{item._id.toString()}}>删除</a></td>
                             </tr>
                             <% endfor %>

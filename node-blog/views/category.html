@@ -5,15 +5,17 @@
 <div class="clean-breadcrumb">
     <a href="/">首页</a>
     <span class="separator">&#x2F;</span>
-    <a>分类名称</a>
+    <a>{{category.name}}</a>
 </div>
 <% endblock %>
 
 
 <% block mainContent %>
+<% for blog in category.posts %>
 <div>
-    <h3>分类博客列表</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus inventore magni ratione perferendis ex molestiae cum reiciendis perspiciatis consequuntur, nihil ducimus corrupti! Ipsum nesciunt ipsa nobis obcaecati labore, rem recusandae?</p>
+    <h3>{{blog.name}}</h3>
+    <p>{{blog.summary}}</p>
     <hr>
 </div>
+<% endfor %>
 <% endblock %>
