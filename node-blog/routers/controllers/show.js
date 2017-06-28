@@ -1,6 +1,7 @@
 /**
  * Created by Administrator on 2017/6/21.
  */
+const md = require('markdown').markdown;
 const postModel = require('../../modules/data').post;
 const categoryModel = require('../../modules/data').category;
 const app = require('express')();
