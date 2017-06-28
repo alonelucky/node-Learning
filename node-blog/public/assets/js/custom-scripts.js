@@ -115,4 +115,36 @@
         });
     });
 
+    // 更新分类效果实现
+    $('.updateCategory').on('click',function(){
+        let $newTd = $(this).parents('td').siblings().eq(0);
+        let $text = $newTd.text();
+        let $id = $(this).siblings('a').data('id');
+        $newTd.css({width:'30%'});
+        let $nodeInput = `<form id="updateCatrgoryForm" style="display: inline-block"><input type="text" value="${$text}" name="name"><input type="hidden" name="id" value="${$id}"><a href="javascript:;" class="submitUpdateCategory" style="margin-left: 1rem">提交修改</a> / <a href="javascript::" class="cancelInput">取消</a></form>`;
+        $newTd.html($nodeInput);
+    });
+
+    // 确认提交信息
+    $('table').on('click','.submitUpdateCategory',function(){
+        let $input = $('#updateCatrgoryForm').find('input').eq(0);
+        console.log($input.val());
+        $.ajax({
+            url:'/api/updatecategory',
+            data:$('#updateCatrgoryForm').serialize(),
+            method:'post',
+            success:function(msg){
+                if(!msg.code){
+                    setTimeout(window.location.reload(),500);
+                }
+            }
+        })
+    });
+
+    // 当文本框失去焦点即
+    $('table').on('blur','.cancelInput',function(){
+        let $text = $(this).val();
+        $(this).parents('td').html($text);
+    });
+
 }(jQuery));

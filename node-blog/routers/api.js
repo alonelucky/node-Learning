@@ -13,6 +13,7 @@ router.all('/logout',mwRouter.check_user_loged,apiController.logout);
 router.all('/addpost',apiController.addPost);
 router.all('/addcategory',apiController.addCategory);
 router.all('/removecategory',apiController.removeCategory);
+router.all('/updatecategory',apiController.updateCategory);
 router.all('/removepost',apiController.removePost);
 router.all('/updatepost',apiController.updatePost);
 

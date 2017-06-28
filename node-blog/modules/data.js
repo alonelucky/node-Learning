@@ -9,7 +9,14 @@ const userSchema = new Schema({
     username:String,
     password:String,
     email:String,
-    create_at:String,
+    create_at:{
+        type:Date,
+        default:Date.now()
+    },
+    update_at:{
+        type:Date,
+        default:Date.now
+    }
 });
 
 // 生成用户模型
@@ -33,7 +40,10 @@ const postSchema = new Schema({
     },
     status:Boolean,
     comment_status:Boolean,
-    create_at:String,
+    create_at:{
+        type:Date,
+        default:Date.now()
+    },
     update_at:{
         type:Date,
         default:Date.now
@@ -55,7 +65,11 @@ postModel.findByPage=function(paged,callback){
 // 增加分类
 const categorySchema = new Schema({
     name:String,
-    posts:[{type:Schema.ObjectId,ref:'post'}]
+    posts:[{type:Schema.ObjectId,ref:'post'}],
+    update_at:{
+        type:Date,
+        default:Date.now
+    }
 });
 
 const categoryModel = db.model('category',categorySchema);
@@ -63,7 +77,11 @@ const categoryModel = db.model('category',categorySchema);
 // 增加站点设置项
 const optionSchema = new Schema({
     name:String,
-    value:Number
+    value:Number,
+    update_at:{
+        type:Date,
+        default:Date.now
+    }
 });
 
 const optionModel = db.model('option',optionSchema);

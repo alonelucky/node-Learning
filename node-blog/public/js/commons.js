@@ -2,7 +2,7 @@
  * Created by Administrator on 2017/6/21.
  */
 $(document).ready(function(){
-
+    // 注册密码简单验证
     $('#signModal input[type=password]').on('keyup',function(){
         var inputPassword =  $('#signModal input[type=password]');
         if(inputPassword.eq(0).val()!=inputPassword.eq(1).val()){
@@ -11,7 +11,7 @@ $(document).ready(function(){
             $('#signModal .tips').text('');
         }
     });
-
+    // 登录ajax
     $('#loginBtn').on('click',function(){
         console.log($('#login').serialize());
         $.ajax({
@@ -26,7 +26,7 @@ $(document).ready(function(){
             }
         });
     });
-
+    // 注册ajax提交
     $('#signBtn').on('click',function(){
         $.ajax({
             url:'/api/sign',
@@ -41,7 +41,7 @@ $(document).ready(function(){
         });
     });
 
-
+    // 登出处理
     $('#logout').on('click',function(){
         $.ajax({
             url:'/api/logout',

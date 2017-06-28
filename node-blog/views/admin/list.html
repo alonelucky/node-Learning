@@ -48,8 +48,8 @@
                             <tr class="gradeX">
                                 <td>{{item.name}}</td>
                                 <td>{{item.posts.length}}</td>
-                                <td>{{item.update_at}}</td>
-                                <td><a href="javascript:;" class="deleteCategory" data-id={{item._id.toString()}}>删除</a></td>
+                                <td>{{item.update_at.toLocaleString()}}</td>
+                                <td><a href="javascript:;" class="deleteCategory" data-id={{item._id.toString()}}>删除</a> / <a href="javascript:;" class="updateCategory" data-id={{item._id.toString()}}>编辑</a></td>
                             </tr>
                             <% endfor %>
                             </tbody>

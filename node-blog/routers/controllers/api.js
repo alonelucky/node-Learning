@@ -7,23 +7,16 @@ const postModel = require('../../modules/data').post;
 const crypto = require('crypto');
 
 module.exports.api=api;
-module.exports.login=login;
-module.exports.sign=sign;
-module.exports.logout=logout;
-module.exports.addPost=addPost;
-module.exports.addCategory=addCategory;
-module.exports.removeCategory=removeCategory;
-module.exports.removePost=removePost;
-module.exports.updatePost=updatePost;
+module.exports.login=login;     // 登录逻辑
+module.exports.sign=sign;       // 注册逻辑
+module.exports.logout=logout;   // 登出逻辑
+module.exports.addPost=addPost; // 发表文章
+module.exports.addCategory=addCategory;         // 增加分类
+module.exports.removeCategory=removeCategory;   // 删除分类
+module.exports.removePost=removePost;           // 删除文章
+module.exports.updatePost=updatePost;           // 更新文章
+module.exports.updateCategory=updateCategory;   // 更新分类
 
-// 对传入的对象增加创建时间属性
-function addTimeObj(oldObj){
-
-    let now = new Date().getTime();
-    let obj = {create_at:now};
-
-    return Object.assign(oldObj,obj);
-}
 
 // 定义返回信息
 var reMessage = {
@@ -64,6 +57,9 @@ function login(req,res){
                 userID:data._id,
                 username:data.username
             }
+            // 更新登录时间
+            data.save();
+
             req.session.userInfo=userInfo;
             req.session.login=true;
             reMessage.msg='登录成功';
@@ -84,11 +80,9 @@ function sign(req,res){
         username:postUsername,
         password:hashPassword
     }
-    // 增加用户注册时间
-    let userInfo = addTimeObj(userObj);
 
     // 创建用户
-    userModel.create(userInfo,function(err,reslut){
+    userModel.create(userObj,function(err,reslut){
         // 注册失败
         if(err){
             reMessage.code='1001';
@@ -199,6 +193,27 @@ function removeCategory(req,res) {
     });
 }
 
+// 更新分类
+function updateCategory(req,res) {
+    let id = req.body.id;
+    // 去除传入参数的id值
+    delete req.body.id;
+    // 根据ID查找并更新
+    categoryModel.findByIdAndUpdate(id,{$set:req.body},function(err,data){
+        if(err){
+            reMessage.msg='分类更新失败';
+            reMessage.code=2008;
+            res.send(reMessage);
+            return;
+        }
+        // 更新时间
+        data.save();
+        reMessage.msg='分类更新成功';
+        reMessage.code=0;
+        res.send(reMessage);
+    });
+}
+
 // 删除文章
 function removePost(req,res){
 
@@ -245,7 +260,8 @@ function updatePost(req,res){
                     res.send(reMessage);
                     return;
                 }
-
+                // 更新时间
+                data.save();
                 reMessage.msg='文章更新成功';
                 reMessage.code=0;
                 res.send(reMessage);
@@ -278,11 +294,11 @@ function updatePost(req,res){
                     res.send(reMessage);
                     return;
                 }
+                data.save();
                 reMessage.msg='文章更新成功';
                 reMessage.code=0;
                 res.send(reMessage);
             });
         }
-
     })();
 }
